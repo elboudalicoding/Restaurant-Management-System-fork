@@ -1,4 +1,4 @@
-package tnt.crasher.restaurant_management_system;
+package tnt.crasher.restaurant_management_system.User;
 
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -7,31 +7,33 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
-
 import java.util.List;
+
+import tnt.crasher.restaurant_management_system.R;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     List<Data> dataList;
-    public static final int WithoutImage=1,WithImage=0;
+    public static final int WithoutImage = 1, WithImage = 0;
 
-    RecyclerViewAdapter(List<Data> list){
-        this.dataList=list;
+    RecyclerViewAdapter(List<Data> list) {
+        this.dataList = list;
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view;
-        switch (viewType){
+        switch (viewType) {
             case WithImage:
-                view=LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview1,parent,false);
-                ImageViewHolder imageViewHolder=new ImageViewHolder(view);
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview1, parent, false);
+                ImageViewHolder imageViewHolder = new ImageViewHolder(view);
                 return imageViewHolder;
 
             case WithoutImage:
-                view=LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview2,parent,false);
-                WithoutImageViewHolder withoutImageViewHolder=new WithoutImageViewHolder(view);
+                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview2, parent, false);
+                WithoutImageViewHolder withoutImageViewHolder = new WithoutImageViewHolder(view);
                 return withoutImageViewHolder;
         }
         return null;
@@ -39,11 +41,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        switch (dataList.get(position).viewtype){
+        switch (dataList.get(position).viewtype) {
             case WithImage:
                 ((ImageViewHolder) holder).imageView.setImageResource(dataList.get(position).photo);
                 ((ImageViewHolder) holder).title.setText(dataList.get(position).title);
                 ((ImageViewHolder) holder).about.setText(dataList.get(position).about);
+                ((ImageViewHolder) holder).ratingBar.setRating(dataList.get(position).rating);
                 break;
             case WithoutImage:
                 ((WithoutImageViewHolder) holder).title.setText(dataList.get(position).title);
@@ -67,34 +70,39 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     @Override
     public int getItemViewType(int position) {
         if (dataList.get(position).viewtype == WithImage) {
-            return WithImage;}
+            return WithImage;
+        }
         return WithoutImage;
     }
 
     //WITH IMAGE
-    public class ImageViewHolder extends RecyclerView.ViewHolder{
+    public class ImageViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
-        TextView title,about;
+        TextView title, about;
         CardView cardView;
+        RatingBar ratingBar;
 
         public ImageViewHolder(View itemView) {
             super(itemView);
-            cardView=(CardView) itemView.findViewById(R.id.cardview1);
-            imageView =(ImageView) itemView.findViewById(R.id.photo);
-            title=(TextView) itemView.findViewById(R.id.title);
-            about=(TextView) itemView.findViewById(R.id.about);}
+            cardView = (CardView) itemView.findViewById(R.id.cardview1);
+            imageView = (ImageView) itemView.findViewById(R.id.photo);
+            title = (TextView) itemView.findViewById(R.id.title);
+            about = (TextView) itemView.findViewById(R.id.about);
+            ratingBar = itemView.findViewById(R.id.ratingBar);
+        }
     }
 
     //NO IMAGE
-    public class WithoutImageViewHolder extends RecyclerView.ViewHolder{
-        TextView title,about;
+    public class WithoutImageViewHolder extends RecyclerView.ViewHolder {
+        TextView title, about;
         CardView cardView;
 
         public WithoutImageViewHolder(View itemView) {
             super(itemView);
-            cardView=(CardView) itemView.findViewById(R.id.cardview2);
-            title=(TextView) itemView.findViewById(R.id.title);
-            about=(TextView) itemView.findViewById(R.id.about);}
+            cardView = (CardView) itemView.findViewById(R.id.cardview2);
+            title = (TextView) itemView.findViewById(R.id.title);
+            about = (TextView) itemView.findViewById(R.id.about);
+        }
     }
 
     public void setFilter(List<Data> FilteredDataList) {
@@ -102,3 +110,4 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         notifyDataSetChanged();
     }
 }
+
