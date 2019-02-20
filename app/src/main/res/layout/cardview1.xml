@@ -7,8 +7,8 @@
         android:layout_height="wrap_content"
         card_view:cardElevation="4dp"
         android:layout_marginTop="6dp"
-        android:id="@+id/cardview1"
-        >
+        android:background="#F6F6F6"
+        android:id="@+id/cardview1">
 
         <RelativeLayout
             android:layout_width="match_parent"
