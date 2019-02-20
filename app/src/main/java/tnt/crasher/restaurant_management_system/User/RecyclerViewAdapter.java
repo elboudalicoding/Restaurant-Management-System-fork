@@ -1,14 +1,19 @@
 package tnt.crasher.restaurant_management_system.User;
 
+import android.media.Image;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.List;
 
 import tnt.crasher.restaurant_management_system.R;
@@ -16,7 +21,6 @@ import tnt.crasher.restaurant_management_system.R;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     List<Data> dataList;
-    public static final int WithoutImage = 1, WithImage = 0;
 
     RecyclerViewAdapter(List<Data> list) {
         this.dataList = list;
@@ -25,38 +29,35 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view;
-        switch (viewType) {
-            case WithImage:
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview1, parent, false);
-                ImageViewHolder imageViewHolder = new ImageViewHolder(view);
-                return imageViewHolder;
 
-            case WithoutImage:
-                view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview2, parent, false);
-                WithoutImageViewHolder withoutImageViewHolder = new WithoutImageViewHolder(view);
-                return withoutImageViewHolder;
-        }
-        return null;
+        view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview1, parent, false);
+        ImageViewHolder imageViewHolder = new ImageViewHolder(view);
+        return imageViewHolder;
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
-        switch (dataList.get(position).viewtype) {
-            case WithImage:
-                ((ImageViewHolder) holder).imageView.setImageResource(dataList.get(position).photo);
-                ((ImageViewHolder) holder).title.setText(dataList.get(position).title);
-                ((ImageViewHolder) holder).about.setText(dataList.get(position).about);
-                ((ImageViewHolder) holder).ratingBar.setRating(dataList.get(position).rating);
-                break;
-            case WithoutImage:
-                ((WithoutImageViewHolder) holder).title.setText(dataList.get(position).title);
-                ((WithoutImageViewHolder) holder).about.setText(dataList.get(position).about);
-                break;
-        }
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
+        ((ImageViewHolder) holder).imageView.setImageResource(dataList.get(position).photo);
+        ((ImageViewHolder) holder).title.setText(dataList.get(position).title);
+        ((ImageViewHolder) holder).about.setText(dataList.get(position).about);
+        ((ImageViewHolder) holder).ratingBar.setRating(dataList.get(position).rating);
+        ((ImageViewHolder) holder).price.setText(dataList.get(position).price);
+
+//        ((ImageViewHolder) holder).ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+//            @Override
+//            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+//                ratingBar.setRating(ratingBar.getRating());
+//            }
+//        });
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("HEELLOO", "WTF");
+                if (((ImageViewHolder) holder).checkBox.isChecked())
+                    ((ImageViewHolder) holder).checkBox.setChecked(false);
+                else{
+                    ((ImageViewHolder) holder).checkBox.setChecked(true);
+                }
             }
         });
 
@@ -67,41 +68,40 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         return dataList.size();
     }
 
-    @Override
-    public int getItemViewType(int position) {
-        if (dataList.get(position).viewtype == WithImage) {
-            return WithImage;
-        }
-        return WithoutImage;
-    }
-
-    //WITH IMAGE
     public class ImageViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
-        TextView title, about;
+        TextView title, about, price;
         CardView cardView;
         RatingBar ratingBar;
+        CheckBox checkBox;
 
         public ImageViewHolder(View itemView) {
             super(itemView);
-            cardView = (CardView) itemView.findViewById(R.id.cardview1);
-            imageView = (ImageView) itemView.findViewById(R.id.photo);
-            title = (TextView) itemView.findViewById(R.id.title);
-            about = (TextView) itemView.findViewById(R.id.about);
+            cardView = itemView.findViewById(R.id.cardview1);
+            imageView = itemView.findViewById(R.id.photo);
+            title = itemView.findViewById(R.id.title);
+            about = itemView.findViewById(R.id.about);
             ratingBar = itemView.findViewById(R.id.ratingBar);
-        }
-    }
+            price = itemView.findViewById(R.id.price);
+            checkBox = itemView.findViewById(R.id.checkbox);
 
-    //NO IMAGE
-    public class WithoutImageViewHolder extends RecyclerView.ViewHolder {
-        TextView title, about;
-        CardView cardView;
+            ratingBar.setOnTouchListener(new View.OnTouchListener() {
+                float xDown;
 
-        public WithoutImageViewHolder(View itemView) {
-            super(itemView);
-            cardView = (CardView) itemView.findViewById(R.id.cardview2);
-            title = (TextView) itemView.findViewById(R.id.title);
-            about = (TextView) itemView.findViewById(R.id.about);
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                        // save down X coordinate
+                        xDown = event.getX();
+                    } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                        // if user moves do not move the finger, update RatingBar value
+                        if (Math.abs(xDown - event.getX()) < 5) {
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+            });
         }
     }
 
