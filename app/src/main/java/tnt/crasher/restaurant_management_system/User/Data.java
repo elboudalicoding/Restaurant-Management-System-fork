@@ -1,6 +1,8 @@
 package tnt.crasher.restaurant_management_system.User;
 
 
+import java.util.ArrayList;
+
 class Data {
     String title,about, price;
     int photo;
