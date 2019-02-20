@@ -50,15 +50,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/about"
+                android:layout_marginLeft="-23dp"
                 android:layout_toRightOf="@id/photo"
+                android:isIndicator="false"
                 android:numStars="5"
-                android:rating="5" />
+                android:rating="5"
+                android:scaleX="0.8"
+                android:scaleY="0.8" />
 
             <CheckBox
                 android:id="@+id/checkbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="220dp"
+                android:layout_marginLeft="183dp"
                 android:layout_toRightOf="@+id/photo" />
 
             <TextView
@@ -66,10 +70,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/ratingBar"
+                android:layout_marginBottom="-4dp"
                 android:layout_toRightOf="@+id/ratingBar"
-                android:layout_marginLeft="20dp"
-                android:textSize="16sp"
-                android:text="₱ 50.00" />
+                android:text="₱ 50.00"
+                android:textSize="16sp" />
 
         </RelativeLayout>
 

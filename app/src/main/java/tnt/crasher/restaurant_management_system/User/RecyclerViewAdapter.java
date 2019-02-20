@@ -5,12 +5,15 @@ import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.List;
 
 import tnt.crasher.restaurant_management_system.R;
@@ -39,6 +42,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         ((ImageViewHolder) holder).about.setText(dataList.get(position).about);
         ((ImageViewHolder) holder).ratingBar.setRating(dataList.get(position).rating);
         ((ImageViewHolder) holder).price.setText(dataList.get(position).price);
+
+//        ((ImageViewHolder) holder).ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+//            @Override
+//            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+//                ratingBar.setRating(ratingBar.getRating());
+//            }
+//        });
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,6 +84,24 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             ratingBar = itemView.findViewById(R.id.ratingBar);
             price = itemView.findViewById(R.id.price);
             checkBox = itemView.findViewById(R.id.checkbox);
+
+            ratingBar.setOnTouchListener(new View.OnTouchListener() {
+                float xDown;
+
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                        // save down X coordinate
+                        xDown = event.getX();
+                    } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                        // if user moves do not move the finger, update RatingBar value
+                        if (Math.abs(xDown - event.getX()) < 5) {
+                            return false;
+                        }
+                    }
+                    return true;
+                }
+            });
         }
     }
 
