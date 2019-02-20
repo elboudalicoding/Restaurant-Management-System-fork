@@ -11,7 +11,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 import tnt.crasher.restaurant_management_system.R;
-import tnt.crasher.restaurant_management_system.User.VIP.ThankYou;
 
 public class Checkout extends AppCompatActivity {
     private TextView appetizerLists, foodLists, beverageLists;
