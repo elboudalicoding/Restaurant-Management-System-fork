@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_marginTop="55sp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="STAFF"
+            android:textSize="50sp"
+            android:textColor="#EF6A1D"
+            android:textStyle="bold"/>
+
+        <Button
+            android:layout_marginTop="100dp"
+            android:layout_gravity="center"
+            android:layout_width="250dp"
+            android:layout_height="80dp"
+            android:text="AVAILABLE ITEMS"
+            android:textStyle="bold"
+            android:background="@drawable/button_design"/>
+
+        <Button
+            android:layout_marginTop="35dp"
+            android:layout_gravity="center"
+            android:layout_width="250dp"
+            android:layout_height="80dp"
+            android:text="REQUESTS"
+            android:textStyle="bold"
+            android:background="@drawable/button_design"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
