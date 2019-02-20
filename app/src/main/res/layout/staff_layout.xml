@@ -20,7 +20,7 @@
             android:textStyle="bold"/>
 
         <Button
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="60dp"
             android:layout_gravity="center"
             android:layout_width="250dp"
             android:layout_height="80dp"
@@ -36,6 +36,16 @@
             android:text="REQUESTS"
             android:textStyle="bold"
             android:background="@drawable/button_design"/>
+
+        <TextView
+            android:layout_marginTop="90dp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="LOG OUT"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:textColor="#95989A"/>
 
     </LinearLayout>
 
