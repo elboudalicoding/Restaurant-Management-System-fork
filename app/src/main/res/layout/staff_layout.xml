@@ -20,15 +20,17 @@
             android:textStyle="bold"/>
 
         <Button
-            android:layout_marginTop="60dp"
-            android:layout_gravity="center"
+            android:id="@+id/button_seats"
             android:layout_width="250dp"
             android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/button_design"
             android:text="AVAILABLE ITEMS"
-            android:textStyle="bold"
-            android:background="@drawable/button_design"/>
+            android:textStyle="bold" />
 
         <Button
+            android:id="@+id/button_request"
             android:layout_marginTop="35dp"
             android:layout_gravity="center"
             android:layout_width="250dp"
