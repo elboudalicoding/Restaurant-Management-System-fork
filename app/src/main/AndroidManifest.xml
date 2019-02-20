@@ -23,6 +23,7 @@
         <activity android:name=".Staff.MenuStaff" />
         <activity android:name=".User.VIP.PointsVIP" />
         <activity android:name=".User.VIP.MembershipVIP" />
+        <activity android:name=".User.VIP.AccessVIP" />
     </application>
 
 </manifest>

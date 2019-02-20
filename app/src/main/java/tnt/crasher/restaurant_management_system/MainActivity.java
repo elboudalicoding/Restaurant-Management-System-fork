@@ -10,6 +10,7 @@ import android.widget.RatingBar;
 
 import tnt.crasher.restaurant_management_system.Staff.MainStaff;
 import tnt.crasher.restaurant_management_system.User.MenuDish;
+import tnt.crasher.restaurant_management_system.User.VIP.AccessVIP;
 import tnt.crasher.restaurant_management_system.User.VIP.MenuVIP;
 
 public class MainActivity extends AppCompatActivity {
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         button_vip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), MenuVIP.class);
+                Intent intent = new Intent(getApplicationContext(), AccessVIP.class);
                 startActivity(intent);
             }
         });
