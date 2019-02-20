@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/title"
                 android:layout_toRightOf="@+id/photo"
-                android:text="Dhaka" />
+                android:text="About" />
 
             <RatingBar
                 android:id="@+id/ratingBar"
@@ -55,11 +55,21 @@
                 android:rating="5" />
 
             <CheckBox
-                android:id="@+id/checkBox"
+                android:id="@+id/checkbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="181dp"
+                android:layout_marginLeft="220dp"
                 android:layout_toRightOf="@+id/photo" />
+
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/ratingBar"
+                android:layout_toRightOf="@+id/ratingBar"
+                android:layout_marginLeft="20dp"
+                android:textSize="16sp"
+                android:text="₱ 50.00" />
 
         </RelativeLayout>
 
