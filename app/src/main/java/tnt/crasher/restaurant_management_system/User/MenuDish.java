@@ -35,31 +35,31 @@ public class MenuDish extends AppCompatActivity implements SearchView.OnQueryTex
         setContentView(R.layout.menu_dish);
 
         dataFood = new ArrayList<>();
-        dataFood.add(new Data("Adobo","An oily chicken with soy sauce",R.drawable.p1,5,0));
-        dataFood.add(new Data("Fried Chicken","An oily and crispy chicken with golden looks",R.drawable.p2,4,0));
-        dataFood.add(new Data("Sinigang","A sour pork with soup and vegetables",R.drawable.p3,3,0));
-        dataFood.add(new Data("Letchon Paksiw","You can easily go to heaven when eating this...",R.drawable.p4,2,0));
-        dataFood.add(new Data("Pakbet","Many vegetables with chicharoon and bagoong",R.drawable.p2,1,0));
-        dataFood.add(new Data("Sisig","Chop chop pork with oily features",R.drawable.p3,2,0));
-        dataFood.add(new Data("Bicol Express","You will be a dragon after eating this...",R.drawable.p5,4, 0));
+        dataFood.add(new Data("Adobo","An oily chicken with soy sauce",R.drawable.p1,5, "₱ 90.00"));
+        dataFood.add(new Data("Fried Chicken","An oily and crispy chicken with golden looks",R.drawable.p2,4,"₱ 40.00"));
+        dataFood.add(new Data("Sinigang","A sour pork with soup and vegetables",R.drawable.p3,3,"₱ 70.00"));
+        dataFood.add(new Data("Letchon Paksiw","You can easily go to heaven when eating this...",R.drawable.p4,2,"₱ 100.00"));
+        dataFood.add(new Data("Pakbet","Many vegetables with chicharoon and bagoong",R.drawable.p2,1,"₱ 40.00"));
+        dataFood.add(new Data("Sisig","Chop chop pork with oily features",R.drawable.p3,2,"₱ 30.00"));
+        dataFood.add(new Data("Bicol Express","You will be a dragon after eating this...",R.drawable.p5,4, "₱ 80.00"));
 
         dataBeverage = new ArrayList<>();
-        dataBeverage.add(new Data("Coke","An oily chicken with soy sauce",R.drawable.p1,5,0));
-        dataBeverage.add(new Data("Ice Tea","An oily and crispy chicken with golden looks",R.drawable.p2,4,0));
-        dataBeverage.add(new Data("Milk Tea","A sour pork with soup and vegetables",R.drawable.p3,3,0));
-        dataBeverage.add(new Data("Lemonade","You can easily go to heaven when eating this...",R.drawable.p4,2,0));
-        dataBeverage.add(new Data("Beer","Many vegetables with chicharoon and bagoong",R.drawable.p2,1,0));
-        dataBeverage.add(new Data("Red Wine","Chop chop pork with oily features",R.drawable.p3,2,0));
-        dataBeverage.add(new Data("Chocolate Drink","You will be a dragon after eating this...",R.drawable.p5,4, 0));
+        dataBeverage.add(new Data("Coke","An oily chicken with soy sauce",R.drawable.p1,5,"₱ 20.00"));
+        dataBeverage.add(new Data("Ice Tea","An oily and crispy chicken with golden looks",R.drawable.p2,4,"₱ 25.00"));
+        dataBeverage.add(new Data("Milk Tea","A sour pork with soup and vegetables",R.drawable.p3,3,"₱ 50.00"));
+        dataBeverage.add(new Data("Lemonade","You can easily go to heaven when eating this...",R.drawable.p4,2,"₱ 20.00"));
+        dataBeverage.add(new Data("Beer","Many vegetables with chicharoon and bagoong",R.drawable.p2,1,"₱ 49.99"));
+        dataBeverage.add(new Data("Red Wine","Chop chop pork with oily features",R.drawable.p3,2,"₱ 39.99"));
+        dataBeverage.add(new Data("Chocolate Drink","You will be a dragon after eating this...",R.drawable.p5,4, "₱ 25.00"));
 
         dataAppetizer = new ArrayList<>();
-        dataAppetizer.add(new Data("Snail","An oily chicken with soy sauce",R.drawable.p1,5,0));
-        dataAppetizer.add(new Data("Snake","An oily and crispy chicken with golden looks",R.drawable.p2,4,0));
-        dataAppetizer.add(new Data("Taho","A sour pork with soup and vegetables",R.drawable.p3,3,0));
-        dataAppetizer.add(new Data("Popcorn","You can easily go to heaven when eating this...",R.drawable.p4,2,0));
-        dataAppetizer.add(new Data("Donut","Many vegetables with chicharoon and bagoong",R.drawable.p2,1,0));
-        dataAppetizer.add(new Data("Pie","Chop chop pork with oily features",R.drawable.p3,2,0));
-        dataAppetizer.add(new Data("Salad","You will be a dragon after eating this...",R.drawable.p5,4, 0));
+        dataAppetizer.add(new Data("Snail","An oily chicken with soy sauce",R.drawable.p1,5,"₱ 50.00"));
+        dataAppetizer.add(new Data("Snake","An oily and crispy chicken with golden looks",R.drawable.p2,4,"₱ 40.00"));
+        dataAppetizer.add(new Data("Taho","A sour pork with soup and vegetables",R.drawable.p3,3,"₱ 10.00"));
+        dataAppetizer.add(new Data("Popcorn","You can easily go to heaven when eating this...",R.drawable.p4,2,"₱ 50.00"));
+        dataAppetizer.add(new Data("Donut","Many vegetables with chicharoon and bagoong",R.drawable.p2,1,"₱ 30.00"));
+        dataAppetizer.add(new Data("Pie","Chop chop pork with oily features",R.drawable.p3,2,"₱ 50.00"));
+        dataAppetizer.add(new Data("Salad","You will be a dragon after eating this...",R.drawable.p5,4, "₱ 20.00"));
 
         dataMenu.add(dataFood);
         dataMenu.add(dataBeverage);
