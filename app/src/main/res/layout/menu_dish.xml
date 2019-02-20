@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:context=".User.MenuDish">
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerViewMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_above="@id/bottombar"/>
+    <RelativeLayout
+        android:id="@+id/bottombar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp">
+        <Button
+            android:id="@+id/button_proceed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="PROCEED"
+            android:layout_alignParentRight="true"
+            android:layout_centerHorizontal="true"/>
+        <Button
+            android:id="@+id/button_skip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SKIP"
+            android:layout_alignParentLeft="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>
