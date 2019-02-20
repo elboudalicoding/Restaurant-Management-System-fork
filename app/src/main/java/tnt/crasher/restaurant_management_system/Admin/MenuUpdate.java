@@ -41,7 +41,7 @@ public class MenuUpdate extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 menu_name = field_name.getText().toString();
-                menu_description = field_name.getText().toString();
+                menu_description = field_description.getText().toString();
                 menu_price = field_price.getText().toString();
                 menu_type = spinner_type.getSelectedItemPosition();
 
