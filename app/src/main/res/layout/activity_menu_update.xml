@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Admin.MenuUpdate"
+    android:padding="10dp">
+
+    <EditText
+        android:id="@+id/field_menuname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Menu Name"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Description"
+        android:id="@+id/field_description"
+        android:layout_below="@id/field_menuname"
+        android:inputType="textMultiLine"
+        android:lines="8"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:id="@+id/field_price"
+        android:layout_below="@+id/field_description"
+        android:hint="Price"
+        />
+
+    <Spinner
+        android:id="@+id/spinner_type"
+        android:padding="10dp"
+        android:spinnerMode="dialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/field_price"
+        android:entries="@array/food_type"></Spinner>
+
+    <Button
+        android:id="@+id/button_addmenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Menu"
+        android:layout_alignParentBottom="true"
+        />
+
+</RelativeLayout>

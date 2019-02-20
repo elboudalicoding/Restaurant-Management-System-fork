@@ -16,11 +16,12 @@
         android:textAlignment="center"
         android:fontFamily="sans-serif-black"
         android:textColor="#DA291C"/>
+
     <ImageView
-        android:layout_marginTop="100dp"
-        android:id="@+id/imageView"
+        android:id="@+id/image_fingerprint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
         app:srcCompat="@drawable/finger_print_img" />
 
     <TextView
