@@ -30,7 +30,7 @@ public class MenuTable extends AppCompatActivity {
 
         Cursor food = databaseHelper.getMenu();
         while(food.moveToNext()){
-            foodLists.add(new FoodList(food.getInt(0), food.getString(1), food.getString(2), food.getDouble(3), food.getInt(5), food.getDouble(4)));
+            foodLists.add(new FoodList(food.getInt(0), food.getString(1), food.getString(2), food.getDouble(4), food.getInt(5), food.getDouble(3)));
         }food.close();
 
         foodListAdapter = new FoodListAdapter(this, R.layout.food_table, foodLists);
