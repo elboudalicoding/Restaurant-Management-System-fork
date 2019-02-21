@@ -18,6 +18,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".User.VIP.MenuVIP" />
+        <activity android:name=".Staff.MainStaff" />
+        <activity android:name=".Staff.MenuStaff" />
+        <activity android:name=".User.VIP.PointsVIP" />
+        <activity android:name=".User.VIP.MembershipVIP" />
     </application>
 
 </manifest>

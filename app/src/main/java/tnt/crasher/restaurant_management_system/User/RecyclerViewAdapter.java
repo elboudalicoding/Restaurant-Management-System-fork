@@ -106,6 +106,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         return category;
     }
 
+
     public class ImageViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
         TextView title, about, price;

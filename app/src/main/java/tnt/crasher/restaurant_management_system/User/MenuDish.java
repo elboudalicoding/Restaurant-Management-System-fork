@@ -94,6 +94,7 @@ public class MenuDish extends AppCompatActivity implements SearchView.OnQueryTex
 
                 if (i <= dataMenu.size()-2) {
                     foodLists.addAll(adapter.getFood());
+
                     i++;
                     adapter =new RecyclerViewAdapter(dataMenu.get(i));
                     recyclerView.setAdapter(adapter);

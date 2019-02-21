@@ -49,9 +49,10 @@
                     android:padding="10dp">
 
                     <ImageView
-                        android:layout_gravity="center"
+                        android:id="@+id/button_preferences"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
+                        android:layout_gravity="center"
                         android:background="@drawable/book" />
 
                     <TextView
@@ -78,6 +79,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <ImageView
+                        android:id="@+id/button_order"
                         android:layout_gravity="center"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
@@ -108,6 +110,7 @@
                     android:layout_height="130dp">
 
                     <ImageView
+                        android:id="@+id/button_points"
                         android:layout_gravity="center"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
@@ -139,6 +142,7 @@
                     android:layout_height="match_parent">
 
                     <ImageView
+                        android:id="@+id/button_membership"
                         android:layout_gravity="center"
                         android:layout_width="80dp"
                         android:layout_height="80dp"
