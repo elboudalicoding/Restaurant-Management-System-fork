@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:padding="10dp"
+    tools:context=".Admin.AdminLogin">
+
+    <TextView
+        android:id="@+id/label_adminlogin"
+        android:fontFamily="sans-serif-black"
+        android:textColor="@color/colorPrimary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ADMIN LOGIN"
+        android:textSize="50dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp"/>
+
+
+    <EditText
+        android:id="@+id/field_username"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/edit_round"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"
+        android:hint="Username"
+        android:layout_below="@+id/label_adminlogin"/>
+
+    <EditText
+        android:id="@+id/field_password"
+        android:inputType="textPassword"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/edit_round"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"
+        android:hint="Password"
+        android:layout_below="@+id/field_username"/>
+
+    <Button
+        android:id="@+id/button_login"
+        android:layout_width="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:textColor="#101820"
+        android:background="@drawable/button_design"
+        android:layout_marginTop="25dp"
+        android:text="Log In"
+        android:layout_below="@+id/field_password"/>
+    <Button
+        android:id="@+id/button_exit"
+        android:layout_width="100dp"
+        android:layout_centerHorizontal="true"
+        android:layout_height="wrap_content"
+        android:textColor="#101820"
+        android:background="@drawable/button_design"
+        android:layout_marginTop="10dp"
+        android:text="Exit"
+        android:layout_below="@+id/button_login"/>
+
+</RelativeLayout>

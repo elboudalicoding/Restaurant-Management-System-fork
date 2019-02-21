@@ -7,8 +7,8 @@
         android:layout_height="wrap_content"
         card_view:cardElevation="4dp"
         android:layout_marginTop="6dp"
-        android:id="@+id/cardview1"
-        >
+        android:background="#F6F6F6"
+        android:id="@+id/cardview1">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -65,7 +65,7 @@
                 android:id="@+id/checkbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="183dp"
+                android:layout_marginLeft="240dp"
                 android:layout_toRightOf="@+id/photo" />
 
             <TextView
