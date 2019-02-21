@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RatingBar;
 
+import tnt.crasher.restaurant_management_system.Admin.AdminMenu;
 import tnt.crasher.restaurant_management_system.Staff.MainStaff;
 import tnt.crasher.restaurant_management_system.User.MenuDish;
 import tnt.crasher.restaurant_management_system.User.VIP.AccessVIP;
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         button_guest = findViewById(R.id.button_guest);
         button_vip = findViewById(R.id.button_vip);
         button_staff = findViewById(R.id.button_staff);
+        button_admin = findViewById(R.id.button_admin);
 
         button_guest.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,6 +47,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), AccessVIP.class);
+                startActivity(intent);
+            }
+        });
+
+        button_admin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), AdminMenu.class);
                 startActivity(intent);
             }
         });

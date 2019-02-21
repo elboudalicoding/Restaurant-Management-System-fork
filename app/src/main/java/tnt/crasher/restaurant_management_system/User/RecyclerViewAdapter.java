@@ -25,9 +25,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     List<Data> dataList;
 
-    ArrayList<String> checkedFood = new ArrayList<>();
-    ArrayList<String> checkedBeverage = new ArrayList<>();
-    ArrayList<String> checkedAppetizer = new ArrayList<>();
+    private ArrayList<String> checkedFood = new ArrayList<>();
+    private ArrayList<String> checkedBeverage = new ArrayList<>();
+    private ArrayList<String> checkedAppetizer = new ArrayList<>();
 
     String category = "";
 
@@ -67,18 +67,38 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 if (((ImageViewHolder) holder).checkBox.isChecked()){
 
                     ((ImageViewHolder) holder).checkBox.setChecked(false);
-                    Log.d("SELECTED ITEM", ((ImageViewHolder) holder).title.getText().toString() + " removed");
-                    checkedFood.remove(((ImageViewHolder) holder).title.getText().toString());
-                    Log.d("SELECTED ITEM", checkedFood + " removed list");
+                    switch (category){
+                        case "Food":
+                            checkedFood.remove(((ImageViewHolder) holder).title.getText().toString());
+                            break;
+                        case "Beverage":
+                            checkedBeverage.remove(((ImageViewHolder) holder).title.getText().toString());
+                            break;
+                        case "Appetizer":
+                            checkedAppetizer.remove(((ImageViewHolder) holder).title.getText().toString());
+                            break;
+                        default:
+                            Log.d("SELECT ITEM", "NO MORE");
+                    }
 
                 }
 
                 else{
 
                     ((ImageViewHolder) holder).checkBox.setChecked(true);
-                    Log.d("SELECTED ITEM", ((ImageViewHolder) holder).title.getText().toString());
-                    checkedFood.add(((ImageViewHolder) holder).title.getText().toString());
-                    Log.d("SELECTED ITEM", String.valueOf(checkedFood));
+                    switch (category){
+                        case "Food":
+                            checkedFood.add(((ImageViewHolder) holder).title.getText().toString());
+                            break;
+                        case "Beverage":
+                            checkedBeverage.add(((ImageViewHolder) holder).title.getText().toString());
+                            break;
+                        case "Appetizer":
+                            checkedAppetizer.add(((ImageViewHolder) holder).title.getText().toString());
+                            break;
+                        default:
+                            Log.d("SELECT ITEM", "NO MORE");
+                    }
                 }
             }
         });
@@ -104,6 +124,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     public String getCategory(){
         return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 
 

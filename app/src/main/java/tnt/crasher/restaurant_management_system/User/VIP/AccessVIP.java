@@ -17,6 +17,7 @@ public class AccessVIP extends AppCompatActivity {
         setContentView(R.layout.finger_print_layout);
 
         finger_print = findViewById(R.id.image_fingerprint);
+
         finger_print.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

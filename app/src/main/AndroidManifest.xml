@@ -24,8 +24,9 @@
         <activity android:name=".User.VIP.PointsVIP" />
         <activity android:name=".User.VIP.MembershipVIP" />
         <activity android:name=".User.VIP.AccessVIP" />
-        <activity android:name=".Admin.AdminMenu"/>
-        <activity android:name=".Admin.MenuUpdate"/>
+        <activity android:name=".Admin.AdminMenu" />
+        <activity android:name=".Admin.MenuUpdate" />
+        <activity android:name=".User.VIP.ThankYou" />
     </application>
 
 </manifest>
