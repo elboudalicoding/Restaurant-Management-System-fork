@@ -9,7 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Admin.AdminStaff"></activity>
+        <activity android:name=".Admin.AdminStaff"
+            android:theme="@style/AppThemActionAkbar"
+            android:parentActivityName=".Admin.AdminMenu"
+            android:label="List of Employees"
+            ></activity>
         <activity android:name=".Admin.MenuTable" />
         <activity android:name=".Admin.AdminLogin" />
         <activity android:name=".User.Checkout" />
@@ -30,7 +34,8 @@
         <activity android:name=".User.VIP.MembershipVIP" />
         <activity android:name=".User.VIP.AccessVIP" />
         <activity android:name=".Admin.AdminMenu" />
-        <activity android:name=".Admin.MenuUpdate" />
+        <activity android:name=".Admin.MenuUpdate"
+            android:parentActivityName=".Admin.AdminMenu"/>
         <activity android:name=".User.ThankYou" />
     </application>
 
