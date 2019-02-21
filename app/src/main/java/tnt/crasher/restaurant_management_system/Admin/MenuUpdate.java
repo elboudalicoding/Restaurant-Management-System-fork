@@ -1,5 +1,6 @@
 package tnt.crasher.restaurant_management_system.Admin;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,7 +16,7 @@ public class MenuUpdate extends AppCompatActivity {
 
     private EditText field_name, field_description, field_price;
     private Spinner spinner_type;
-    private Button add_menu;
+    private Button add_menu, checkmenu;
 
     private String menu_name, menu_description, menu_price;
     private int menu_type;
@@ -56,6 +57,16 @@ public class MenuUpdate extends AppCompatActivity {
                     }
                 }
 
+            }
+        });
+
+        checkmenu = (Button)findViewById(R.id.button_checkmenu);
+
+        checkmenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), MenuTable.class);
+                startActivity(i);
             }
         });
 

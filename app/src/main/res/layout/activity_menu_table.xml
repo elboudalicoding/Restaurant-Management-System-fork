@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Admin.MenuTable">
+
+    <ScrollView
+        android:id="@+id/table_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:stretchColumns="0,1">
+
+            <TableRow>
+                <TextView
+                    android:id="@+id/list_id"
+                    android:background="@drawable/table_border"
+                    android:text="ID"
+                    android:padding="10dp"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".166"
+                    />
+
+                <TextView
+                    android:id="@+id/list_name"
+                    android:background="@drawable/table_border"
+                    android:padding="10dp"
+                    android:text="NAME"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".166"
+                    />
+
+                <TextView
+                    android:id="@+id/list_description"
+                    android:background="@drawable/table_border"
+                    android:padding="10dp"
+                    android:text="DESCRIPTION"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".166"
+                    />
+
+                <TextView
+                    android:id="@+id/list_rating"
+                    android:background="@drawable/table_border"
+                    android:padding="10dp"
+                    android:text="RATING"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".166"
+                    />
+
+                <TextView
+                    android:id="@+id/list_price"
+                    android:background="@drawable/table_border"
+                    android:padding="10dp"
+                    android:text="PRICE"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".166"
+                    />
+
+                <TextView
+                    android:id="@+id/list_type"
+                    android:background="@drawable/table_border"
+                    android:padding="10dp"
+                    android:text="TYPE"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".166"
+                    />
+            </TableRow>
+
+        </TableLayout>
+
+    </ScrollView>
+
+    <ListView
+        android:id="@+id/list_menus"
+        android:layout_below="@+id/table_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></ListView>
+
+
+</RelativeLayout>

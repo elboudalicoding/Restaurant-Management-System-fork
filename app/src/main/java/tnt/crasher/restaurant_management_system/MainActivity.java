@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RatingBar;
 
+import tnt.crasher.restaurant_management_system.Admin.AdminLogin;
 import tnt.crasher.restaurant_management_system.Admin.AdminMenu;
 import tnt.crasher.restaurant_management_system.Staff.MainStaff;
 import tnt.crasher.restaurant_management_system.User.MenuDish;
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
         button_admin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), AdminMenu.class);
+                Intent intent = new Intent(getApplicationContext(), AdminLogin.class);
                 startActivity(intent);
             }
         });

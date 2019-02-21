@@ -62,6 +62,15 @@
         />
 
 
+    <Button
+        android:id="@+id/button_checkmenu"
+        android:background="@drawable/button_design"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="List of food"
+        android:layout_above="@+id/button_addmenu"
+        android:layout_marginBottom="5dp"
+        />
 
     <Button
         android:id="@+id/button_addmenu"
