@@ -54,6 +54,9 @@ public class MenuUpdate extends AppCompatActivity {
                 else{
                     if(databaseHelper.addMenu(menu_name, menu_description, 0.0, Double.parseDouble(menu_price) ,menu_type)){
                         toastMessage("Successfully added");
+                        field_name.setText("");
+                        field_description.setText("");
+                        field_price.setText("");
                     }
                 }
 
