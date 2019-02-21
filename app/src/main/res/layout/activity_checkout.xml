@@ -24,6 +24,24 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Appetizer: "
+                android:textColor="#000"
+                android:textSize="24dp" />
+
+            <TextView
+                android:id="@+id/appetizerLists"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="60dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="appetizer lists"
+                android:textColor="#000"
+                android:textSize="24dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:textSize="24dp"
                 android:text="Food: "
                 android:textColor="#000"/>
@@ -51,26 +69,10 @@
                 android:textSize="24dp"
                 android:text="beverages lists "
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="50dp"
                 android:layout_marginLeft="60dp"
                 android:textColor="#000"/>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="24dp"
-                android:text="Appetizer: "
-                android:textColor="#000"/>
-            <TextView
-                android:id="@+id/appetizerLists"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="24dp"
-                android:text="appetizer lists"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="50dp"
-                android:layout_marginLeft="60dp"
-                android:textColor="#000" />
         </LinearLayout>
 
 
@@ -86,6 +88,7 @@
         android:layout_marginBottom="10dp">
 
         <Button
+            android:id="@+id/button_order"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="24sp"

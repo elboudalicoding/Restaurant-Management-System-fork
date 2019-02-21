@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Practice</string>
     <string name="action_search">Search</string>
+
+    <array name="food_type">
+        <item>Appetizer</item>
+        <item>Food</item>
+        <item>Beverage</item>
+    </array>
+
 </resources>

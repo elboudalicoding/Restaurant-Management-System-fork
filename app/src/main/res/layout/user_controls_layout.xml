@@ -1,40 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:orientation="vertical">
-
-    <Button
+    android:background="#FFFFFF">
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
-        android:layout_gravity="center"
-        android:background="@drawable/request_button"/>
+        android:layout_centerInParent="true"
+        android:orientation="vertical">
+
+    <Button
+        android:id="@+id/button_request"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/request_button" />
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:textSize="15dp"
         android:layout_gravity="center"
+        android:textSize="15dp"
         android:text="Request for staff assistance"
+        android:layout_margin="20dp"
         android:fontFamily="sans-serif-light"/>
 
     <Button
+        android:id="@+id/button_bill"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:layout_gravity="center"
         android:background="@drawable/bill_button"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:textSize="15dp"
         android:layout_gravity="center"
+        android:textSize="15dp"
+        android:layout_margin="20dp"
         android:text="Ask for the bill"
         android:fontFamily="sans-serif-light"/>
 
-</LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

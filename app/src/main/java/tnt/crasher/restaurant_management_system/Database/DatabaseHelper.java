@@ -2,6 +2,7 @@ package tnt.crasher.restaurant_management_system.Database;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.DatabaseErrorHandler;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -100,7 +101,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         ContentValues contentValues = new ContentValues();
         contentValues.put(FOOD_NAME, name);
-        contentValues.put(FOOD_DESCRIPTION, name);
+        contentValues.put(FOOD_DESCRIPTION, description);
         contentValues.put(FOOD_RATING, rating);
         contentValues.put(FOOD_PRICE, price);
         contentValues.put(FOOD_TYPE, type);
@@ -168,6 +169,22 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return false;
         else
             return true;
+    }
+
+    // Get Menu
+
+    public Cursor getMenu(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + FOOD_TABLE + ";";
+        Cursor data = db.rawQuery(query, null);
+        return data;
+    }
+
+    public Cursor getMenu(int type){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + FOOD_TABLE + " WHERE " + FOOD_TYPE + "=" + type + ";";
+        Cursor data = db.rawQuery(query, null);
+        return data;
     }
 
 }
