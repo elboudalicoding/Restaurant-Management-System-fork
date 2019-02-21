@@ -9,13 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Admin.AdminStaff"></activity>
-        <activity android:name=".Admin.MenuTable" />
+        <activity android:name=".Admin.MenuTable"></activity>
         <activity android:name=".Admin.AdminLogin" />
         <activity android:name=".User.Checkout" />
-        <activity
-            android:name=".User.MenuDish"
-            android:theme="@style/AppThemActionAkbar" />
+        <activity android:name=".User.MenuDish"
+            android:theme="@style/AppThemActionAkbar"
+            />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

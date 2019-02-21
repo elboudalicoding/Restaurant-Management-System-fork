@@ -17,17 +17,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
-import tnt.crasher.restaurant_management_system.R;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     List<Data> dataList;
 
-    private ArrayList<String> checkedFood = new ArrayList<>();
-    private ArrayList<String> checkedBeverage = new ArrayList<>();
-    private ArrayList<String> checkedAppetizer = new ArrayList<>();
+    private HashMap<String, Integer> checkedFood = new HashMap<>();
+    private HashMap<String, Integer> checkedBeverage = new HashMap<>();
+    private HashMap<String, Integer> checkedAppetizer = new HashMap<>();
+    int food,beverage,appetizer;
 
     String category = "";
 
@@ -69,13 +70,25 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                     ((ImageViewHolder) holder).checkBox.setChecked(false);
                     switch (category){
                         case "Food":
+                            food = 0;
+                            ((ImageViewHolder) holder).quantity.setText(String.valueOf(food) + "x");
+                            ((ImageViewHolder) holder).button_quantity.setVisibility(View.INVISIBLE);
                             checkedFood.remove(((ImageViewHolder) holder).title.getText().toString());
+
                             break;
                         case "Beverage":
+                            beverage = 0;
+                            ((ImageViewHolder) holder).quantity.setText(String.valueOf(beverage) + "x");
+                            ((ImageViewHolder) holder).button_quantity.setVisibility(View.INVISIBLE);
                             checkedBeverage.remove(((ImageViewHolder) holder).title.getText().toString());
+
                             break;
                         case "Appetizer":
+                            appetizer = 0;
+                            ((ImageViewHolder) holder).quantity.setText(String.valueOf(appetizer) + "x");
+                            ((ImageViewHolder) holder).button_quantity.setVisibility(View.INVISIBLE);
                             checkedAppetizer.remove(((ImageViewHolder) holder).title.getText().toString());
+
                             break;
                         default:
                             Log.d("SELECT ITEM", "NO MORE");
@@ -88,13 +101,28 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                     ((ImageViewHolder) holder).checkBox.setChecked(true);
                     switch (category){
                         case "Food":
-                            checkedFood.add(((ImageViewHolder) holder).title.getText().toString());
+                            beverage = Integer.parseInt(((ImageViewHolder) holder).quantity.getText().toString().replace("x", ""));
+                            food++;
+                            ((ImageViewHolder) holder).quantity.setText(String.valueOf(food) + "x");
+                            ((ImageViewHolder) holder).button_quantity.setVisibility(View.VISIBLE);
+                            checkedFood.put(((ImageViewHolder) holder).title.getText().toString(), food);
+
                             break;
                         case "Beverage":
-                            checkedBeverage.add(((ImageViewHolder) holder).title.getText().toString());
+                            appetizer = Integer.parseInt(((ImageViewHolder) holder).quantity.getText().toString().replace("x", ""));
+                            beverage++;
+                            ((ImageViewHolder) holder).quantity.setText(String.valueOf(beverage) + "x");
+                            ((ImageViewHolder) holder).button_quantity.setVisibility(View.VISIBLE);
+                            checkedBeverage.put(((ImageViewHolder) holder).title.getText().toString(), beverage);
+
                             break;
                         case "Appetizer":
-                            checkedAppetizer.add(((ImageViewHolder) holder).title.getText().toString());
+                            appetizer = Integer.parseInt(((ImageViewHolder) holder).quantity.getText().toString().replace("x", ""));
+                            appetizer++;
+                            ((ImageViewHolder) holder).quantity.setText(String.valueOf(appetizer) + "x");
+                            ((ImageViewHolder) holder).button_quantity.setVisibility(View.VISIBLE);
+                            checkedAppetizer.put(((ImageViewHolder) holder).title.getText().toString(), appetizer);
+
                             break;
                         default:
                             Log.d("SELECT ITEM", "NO MORE");
@@ -110,15 +138,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         return dataList.size();
     }
 
-    public ArrayList<String> getFood(){
+    public HashMap<String, Integer> getFood(){
         return checkedFood;
     }
 
-    public ArrayList<String> getBeverage(){
+    public HashMap<String, Integer> getBeverage(){
         return checkedBeverage;
     }
 
-    public ArrayList<String> getAppetizer(){
+    public HashMap<String, Integer> getAppetizer(){
         return checkedAppetizer;
     }
 
@@ -132,8 +160,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
 
     public class ImageViewHolder extends RecyclerView.ViewHolder {
-        ImageView imageView;
-        TextView title, about, price;
+        ImageView imageView, button_quantity;
+        TextView title, about, price, quantity;
         CardView cardView;
         RatingBar ratingBar;
         CheckBox checkBox;
@@ -147,6 +175,9 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             ratingBar = itemView.findViewById(R.id.ratingBar);
             price = itemView.findViewById(R.id.price);
             checkBox = itemView.findViewById(R.id.checkbox);
+            button_quantity = itemView.findViewById(R.id.button_quantity);
+            quantity = itemView.findViewById(R.id.quantity);
+            button_quantity.setVisibility(View.GONE);
 
             ratingBar.setOnTouchListener(new View.OnTouchListener() {
                 float xDown;
@@ -163,6 +194,41 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                         }
                     }
                     return true;
+                }
+            });
+
+            button_quantity.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    switch (category) {
+                        case "Food":
+                            beverage = Integer.parseInt(quantity.getText().toString().replace("x", ""));
+                            food++;
+                            quantity.setText(String.valueOf(food) + "x");
+                            button_quantity.setVisibility(View.VISIBLE);
+                            checkedFood.put(title.getText().toString(), food);
+
+                            break;
+                        case "Beverage":
+                            appetizer = Integer.parseInt(quantity.getText().toString().replace("x", ""));
+                            beverage++;
+                            quantity.setText(String.valueOf(beverage) + "x");
+                            button_quantity.setVisibility(View.VISIBLE);
+                            checkedBeverage.put(title.getText().toString(), beverage);
+
+                            break;
+                        case "Appetizer":
+                            appetizer = Integer.parseInt(quantity.getText().toString().replace("x", ""));
+                            appetizer++;
+                            quantity.setText(String.valueOf(appetizer) + "x");
+                            button_quantity.setVisibility(View.VISIBLE);
+                            checkedAppetizer.put(title.getText().toString(), appetizer);
+
+                            break;
+                        default:
+                            Log.d("SELECT ITEM", "NO MORE");
+                            break;
+                    }
                 }
             });
         }

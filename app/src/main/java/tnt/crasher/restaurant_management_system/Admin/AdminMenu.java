@@ -47,8 +47,7 @@ public class AdminMenu extends AppCompatActivity {
         button_staff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), AdminStaff.class);
-                startActivity(i);
+
             }
         });
 

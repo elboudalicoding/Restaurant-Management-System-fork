@@ -1,37 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-    <android.support.v7.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v7.widget.CardView
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardElevation="4dp"
+    android:layout_marginTop="6dp"
+    android:background="#F6F6F6"
+    android:id="@+id/cardview1">
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        card_view:cardElevation="4dp"
-        android:layout_marginTop="6dp"
-        android:background="#F6F6F6"
-        android:id="@+id/cardview1">
+        android:layout_height="match_parent"
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:id="@+id/photo"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="16dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/p1" />
 
         <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="16dp">
-
-            <ImageView
-                android:id="@+id/photo"
-                android:layout_width="90dp"
-                android:layout_height="90dp"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginRight="16dp"
-                android:adjustViewBounds="true"
-                android:src="@drawable/p1" />
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
 
             <TextView
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="15dp"
-                android:layout_toRightOf="@+id/photo"
                 android:fontFamily="sans-serif-black"
                 android:text="Picture 1"
                 android:textAllCaps="true"
@@ -40,11 +42,17 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/title"
+                android:text="0x" />
+
+            <TextView
                 android:id="@+id/about"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/title"
-                android:layout_toRightOf="@+id/photo"
                 android:text="About" />
 
             <RatingBar
@@ -54,19 +62,24 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/about"
                 android:layout_marginLeft="-23dp"
-                android:layout_toRightOf="@id/photo"
                 android:isIndicator="false"
                 android:numStars="5"
                 android:rating="5"
                 android:scaleX="0.8"
                 android:scaleY="0.8" />
 
+            <ImageView
+                android:id="@+id/button_quantity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/checkbox"
+                android:src="@drawable/ic_add_black_24dp" />
+
             <CheckBox
                 android:id="@+id/checkbox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="240dp"
-                android:layout_toRightOf="@+id/photo" />
+                android:layout_alignParentRight="true" />
 
             <TextView
                 android:id="@+id/price"
@@ -77,11 +90,13 @@
                 android:textColor="#95989A"
                 android:layout_marginBottom="-4dp"
                 android:layout_toRightOf="@+id/ratingBar"
-                android:text="₱ 50.00"
+                android:text="â‚± 50.00"
                 android:textSize="16sp" />
-
         </RelativeLayout>
 
-    </android.support.v7.widget.CardView>
+
+    </LinearLayout>
+
+</android.support.v7.widget.CardView>
 
 

@@ -9,12 +9,14 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import tnt.crasher.restaurant_management_system.R;
 
 public class Checkout extends AppCompatActivity {
     private TextView appetizerLists, foodLists, beverageLists;
-    private Button button_order;
+    private Button button_order, button_checkout;
 
 
 
@@ -27,8 +29,8 @@ public class Checkout extends AppCompatActivity {
         foodLists = findViewById(R.id.foodLists);
         beverageLists = findViewById(R.id.beverageLists);
 
-        button_order = findViewById(R.id.button_order);
-        button_order.setOnClickListener(new View.OnClickListener() {
+        button_checkout = findViewById(R.id.button_checkout);
+        button_checkout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), ThankYou.class);
@@ -36,10 +38,19 @@ public class Checkout extends AppCompatActivity {
             }
         });
 
+        button_order = findViewById(R.id.button_order);
+        button_order.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MenuDish.class);
+                startActivity(intent);
+            }
+        });
+
         Intent intent = getIntent();
-        ArrayList<String> checkedAppetizer = intent.getStringArrayListExtra("appetizer_lists");
-        ArrayList<String> checkedFood = intent.getStringArrayListExtra("food_lists");
-        ArrayList<String> checkedBeverage = intent.getStringArrayListExtra("beverage_lists");
+        HashMap<String, Integer> checkedAppetizer = (HashMap<String, Integer>) intent.getSerializableExtra("appetizer_lists");
+        HashMap<String, Integer> checkedFood = (HashMap<String, Integer>) intent.getSerializableExtra("food_lists");
+        HashMap<String, Integer> checkedBeverage = (HashMap<String, Integer>) intent.getSerializableExtra("beverage_lists");
 
         Log.d("SELECTED ITEM", String.valueOf(checkedFood));
         String final_appetizer = "";
@@ -56,9 +67,9 @@ public class Checkout extends AppCompatActivity {
 
     }
 
-    public String loopItem(ArrayList list, String final_item){
-        for (Object item : list) {
-            final_item = final_item + item + "\n";
+    public String loopItem(HashMap<String, Integer> list, String final_item){
+        for (Map.Entry<String, Integer> entry: list.entrySet()) {
+            final_item = final_item + entry.getKey() + " " + entry.getValue() + "x" + "\n";
         }
         return final_item;
     }

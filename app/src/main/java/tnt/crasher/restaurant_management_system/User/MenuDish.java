@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 import tnt.crasher.restaurant_management_system.Database.DatabaseHelper;
@@ -29,9 +30,9 @@ public class MenuDish extends AppCompatActivity implements SearchView.OnQueryTex
     RecyclerView.LayoutManager layoutManager;
     RecyclerViewAdapter adapter;
 
-    ArrayList<String> foodLists = new ArrayList<>();
-    ArrayList<String> beverageLists = new ArrayList<>();
-    ArrayList<String> appetizerLists = new ArrayList<>();
+    HashMap<String, Integer> foodLists = new HashMap<>();
+    HashMap<String, Integer> beverageLists = new HashMap<>();
+    HashMap<String, Integer> appetizerLists = new HashMap<>();
 
     int i = 0;
     ArrayList<String> category = new ArrayList<>(Arrays.asList("Appetizer", "Food", "Beverage"));
@@ -114,28 +115,26 @@ public class MenuDish extends AppCompatActivity implements SearchView.OnQueryTex
         button_proceed = findViewById(R.id.button_proceed);
 
         button_proceed.setOnClickListener(new View.OnClickListener() {
-
             @Override
             public void onClick(View v) {
-
                 if (i < category.size()-1) {
                     Log.d("SELECT CATEGORY", category.get(i));
                     switch (category_name){
                         case "Appetizer":
-                            appetizerLists.addAll(adapter.getAppetizer());
+                            appetizerLists = adapter.getAppetizer();
                             Log.d("SELECTA", String.valueOf(appetizerLists));
                             adapter =new RecyclerViewAdapter(dataFood);
                             category_name = "Food";
                             break;
 
                         case "Food":
-                            foodLists.addAll(adapter.getFood());
+                            foodLists = adapter.getFood();
                             Log.d("SELECTA", String.valueOf(foodLists));
                             adapter =new RecyclerViewAdapter(dataBeverage);
                             category_name = "Beverage";
                             break;
                         case "Beverage":
-                            beverageLists.addAll(adapter.getBeverage());
+                            beverageLists = adapter.getBeverage();
                             Log.d("SELECTA", String.valueOf(beverageLists));
                             break;
                         default:
@@ -151,34 +150,29 @@ public class MenuDish extends AppCompatActivity implements SearchView.OnQueryTex
                     Log.d("SELECT", category.get(i));
                     switch (category_name){
                         case "Appetizer":
-                            appetizerLists.addAll(adapter.getAppetizer());
+                            appetizerLists = adapter.getAppetizer();
                             Log.d("SELECTA", String.valueOf(appetizerLists));
                             break;
                         case "Food":
-                            foodLists.addAll(adapter.getFood());
+                            foodLists = adapter.getFood();
                             Log.d("SELECTA", String.valueOf(foodLists));
                             break;
                         case "Beverage":
-                            beverageLists.addAll(adapter.getBeverage());
+                            beverageLists = adapter.getBeverage();
                             Log.d("SELECTA", String.valueOf(beverageLists));
                             break;
                         default:
                             Log.d("SELECT ITEM", "NO MORE");
                     }
                     Intent intent = new Intent(getApplicationContext(), Checkout.class);
-                    intent.putStringArrayListExtra("food_lists", foodLists);
-                    intent.putStringArrayListExtra("beverage_lists", beverageLists);
-                    intent.putStringArrayListExtra("appetizer_lists", appetizerLists);
+                    intent.putExtra("food_lists", foodLists);
+                    intent.putExtra("beverage_lists", beverageLists);
+                    intent.putExtra("appetizer_lists", appetizerLists);
 
                     startActivity(intent);
                 }
             }
         });
-
-
-
-
-
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {
