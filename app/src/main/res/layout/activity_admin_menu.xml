@@ -5,22 +5,38 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Admin.AdminMenu"
-    android:background="#eee">
+    android:background="#fff">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#fff">
 
-            <TextView
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
+                android:layout_height="100dp"
                 android:paddingTop="25dp"
-                android:textColor="#21a413"
-                android:fontFamily="sans-serif-black"
-                android:textSize="50dp"
-                android:text="ADMIN"/>
+                android:layout_centerHorizontal="true">
+
+                <TextView
+                    android:id="@+id/label_admin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#21a413"
+                    android:fontFamily="sans-serif-black"
+                    android:layout_alignParentBottom="true"
+                    android:textSize="50dp"
+                    android:text="ADMIN"/>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="70dp"
+                    android:src="@drawable/admin_icon"
+                    android:layout_alignParentBottom="true"
+                    android:layout_toRightOf="@+id/label_admin"/>
+
+            </RelativeLayout>
+
 
         </RelativeLayout>
 
