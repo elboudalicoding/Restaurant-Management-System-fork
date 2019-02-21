@@ -39,6 +39,7 @@
                     android:padding="10dp">
 
                     <Button
+                        android:id="@+id/button_guest"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/guest_button" />
@@ -60,6 +61,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
                     <Button
+                        android:id="@+id/button_vip"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/vip_button"/>
@@ -83,6 +85,7 @@
                     android:layout_height="match_parent">
 
                     <Button
+                        android:id="@+id/button_staff"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/staff_button"/>
@@ -106,6 +109,7 @@
                     android:padding="10dp">
 
                     <Button
+                        android:id="@+id/button_admin"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/admin_button" />

@@ -1,11 +1,13 @@
 package tnt.crasher.restaurant_management_system.User;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,6 +26,10 @@ public class MenuDish extends AppCompatActivity implements SearchView.OnQueryTex
     RecyclerView.LayoutManager layoutManager;
     RecyclerViewAdapter adapter;
     ArrayList<List<Data>> dataMenu = new ArrayList<>();
+
+    ArrayList<String> foodLists = new ArrayList<>();
+    ArrayList<String> beverageLists = new ArrayList<>();
+    ArrayList<String> appetizerLists = new ArrayList<>();
 
     Button button_proceed, button_skip;
     int i = 0;
@@ -72,15 +78,22 @@ public class MenuDish extends AppCompatActivity implements SearchView.OnQueryTex
         recyclerView.setHasFixedSize(true);
 
         adapter =new RecyclerViewAdapter(dataMenu.get(i));
+        adapter.setHasStableIds(true);
+
+        recyclerView.setItemViewCacheSize(200);
+        recyclerView.setDrawingCacheEnabled(true);
+        recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
         recyclerView.setAdapter(adapter);
 
         button_proceed = findViewById(R.id.button_proceed);
+
         button_proceed.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
 
                 if (i <= dataMenu.size()-2) {
+                    foodLists.addAll(adapter.getFood());
                     i++;
                     adapter =new RecyclerViewAdapter(dataMenu.get(i));
                     recyclerView.setAdapter(adapter);
@@ -88,8 +101,13 @@ public class MenuDish extends AppCompatActivity implements SearchView.OnQueryTex
 
                 else{
                     i = 0;
-                    adapter =new RecyclerViewAdapter(dataMenu.get(i));
-                    recyclerView.setAdapter(adapter);
+                    foodLists.addAll(adapter.getFood());
+                    Intent intent = new Intent(getApplicationContext(), Checkout.class);
+                    intent.putStringArrayListExtra("food_lists", foodLists);
+                    intent.putStringArrayListExtra("beverage_lists", beverageLists);
+                    intent.putStringArrayListExtra("appetizer_lists", appetizerLists);
+
+                    startActivity(intent);
                 }
             }
         });

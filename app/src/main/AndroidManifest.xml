@@ -9,8 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Admin.MenuUpdate"></activity>
-        <activity android:name=".Admin.AdminMenu" />
+        <activity android:name=".User.Checkout"></activity>
         <activity android:name=".User.MenuDish" />
         <activity android:name=".MainActivity">
             <intent-filter>

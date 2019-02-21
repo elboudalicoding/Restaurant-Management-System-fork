@@ -32,7 +32,10 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginTop="15dp"
                 android:layout_toRightOf="@+id/photo"
+                android:fontFamily="sans-serif-black"
                 android:text="Picture 1"
+                android:textAllCaps="true"
+                android:textColor="#95989A"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
@@ -70,6 +73,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignBottom="@+id/ratingBar"
+                android:fontFamily="sans-serif-black"
+                android:textColor="#95989A"
                 android:layout_marginBottom="-4dp"
                 android:layout_toRightOf="@+id/ratingBar"
                 android:text="₱ 50.00"

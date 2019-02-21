@@ -1,6 +1,7 @@
 package tnt.crasher.restaurant_management_system.User;
 
 import android.media.Image;
+import android.support.v7.recyclerview.extensions.ListAdapter;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -8,12 +9,14 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import tnt.crasher.restaurant_management_system.R;
@@ -21,6 +24,13 @@ import tnt.crasher.restaurant_management_system.R;
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     List<Data> dataList;
+
+    ArrayList<String> checkedFood = new ArrayList<>();
+    ArrayList<String> checkedBeverage = new ArrayList<>();
+    ArrayList<String> checkedAppetizer = new ArrayList<>();
+
+    String category = "";
+
 
     RecyclerViewAdapter(List<Data> list) {
         this.dataList = list;
@@ -32,11 +42,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
         view = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview1, parent, false);
         ImageViewHolder imageViewHolder = new ImageViewHolder(view);
+
         return imageViewHolder;
     }
 
     @Override
-    public void onBindViewHolder(final RecyclerView.ViewHolder holder, int position) {
+    public void onBindViewHolder(final RecyclerView.ViewHolder holder, final int position) {
         ((ImageViewHolder) holder).imageView.setImageResource(dataList.get(position).photo);
         ((ImageViewHolder) holder).title.setText(dataList.get(position).title);
         ((ImageViewHolder) holder).about.setText(dataList.get(position).about);
@@ -53,10 +64,21 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (((ImageViewHolder) holder).checkBox.isChecked())
+                if (((ImageViewHolder) holder).checkBox.isChecked()){
+
                     ((ImageViewHolder) holder).checkBox.setChecked(false);
+                    Log.d("SELECTED ITEM", ((ImageViewHolder) holder).title.getText().toString() + " removed");
+                    checkedFood.remove(((ImageViewHolder) holder).title.getText().toString());
+                    Log.d("SELECTED ITEM", checkedFood + " removed list");
+
+                }
+
                 else{
+
                     ((ImageViewHolder) holder).checkBox.setChecked(true);
+                    Log.d("SELECTED ITEM", ((ImageViewHolder) holder).title.getText().toString());
+                    checkedFood.add(((ImageViewHolder) holder).title.getText().toString());
+                    Log.d("SELECTED ITEM", String.valueOf(checkedFood));
                 }
             }
         });
@@ -66,6 +88,22 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     @Override
     public int getItemCount() {
         return dataList.size();
+    }
+
+    public ArrayList<String> getFood(){
+        return checkedFood;
+    }
+
+    public ArrayList<String> getBeverage(){
+        return checkedBeverage;
+    }
+
+    public ArrayList<String> getAppetizer(){
+        return checkedAppetizer;
+    }
+
+    public String getCategory(){
+        return category;
     }
 
     public class ImageViewHolder extends RecyclerView.ViewHolder {
