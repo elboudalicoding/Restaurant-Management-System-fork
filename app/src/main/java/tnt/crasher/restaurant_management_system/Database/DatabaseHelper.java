@@ -180,4 +180,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return data;
     }
 
+    public Cursor getMenu(int type){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + FOOD_TABLE + " WHERE " + FOOD_TYPE + "=" + type + ";";
+        Cursor data = db.rawQuery(query, null);
+        return data;
+    }
+
 }

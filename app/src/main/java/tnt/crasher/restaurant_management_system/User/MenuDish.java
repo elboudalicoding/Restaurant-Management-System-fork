@@ -1,6 +1,7 @@
 package tnt.crasher.restaurant_management_system.User;
 
 import android.content.Intent;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import tnt.crasher.restaurant_management_system.Database.DatabaseHelper;
 import tnt.crasher.restaurant_management_system.R;
 
 public class MenuDish extends AppCompatActivity implements SearchView.OnQueryTextListener {
@@ -37,38 +39,63 @@ public class MenuDish extends AppCompatActivity implements SearchView.OnQueryTex
 
     Button button_proceed, button_skip;
 
+    private DatabaseHelper databaseHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_dish);
 
+        databaseHelper = new DatabaseHelper(getApplicationContext());
+
+        Cursor food = databaseHelper.getMenu(1);
         dataFood = new ArrayList<>();
-        dataFood.add(new Data("Adobo","An oily chicken with soy sauce",R.drawable.p1,5, "₱ 90.00"));
-        dataFood.add(new Data("Fried Chicken","An oily and crispy chicken with golden looks",R.drawable.p2,4,"₱ 40.00"));
-        dataFood.add(new Data("Sinigang","A sour pork with soup and vegetables",R.drawable.p3,3,"₱ 70.00"));
-        dataFood.add(new Data("Letchon Paksiw","You can easily go to heaven when eating this...",R.drawable.p4,2,"₱ 100.00"));
-        dataFood.add(new Data("Pakbet","Many vegetables with chicharoon and bagoong",R.drawable.p2,1,"₱ 40.00"));
-        dataFood.add(new Data("Sisig","Chop chop pork with oily features",R.drawable.p3,2,"₱ 30.00"));
-        dataFood.add(new Data("Bicol Express","You will be a dragon after eating this...",R.drawable.p5,4, "₱ 80.00"));
 
+        while(food.moveToNext()){
+            dataFood.add(new Data(food.getString(1),food.getString(2),R.drawable.p1,Float.parseFloat(food.getDouble(4) + ""), "₱ " + food.getDouble(4)));
+        }
+        food.close();
+
+//        dataFood.add(new Data("Adobo","An oily chicken with soy sauce",R.drawable.p1,5, "₱ 90.00"));
+//        dataFood.add(new Data("Fried Chicken","An oily and crispy chicken with golden looks",R.drawable.p2,4,"₱ 40.00"));
+//        dataFood.add(new Data("Sinigang","A sour pork with soup and vegetables",R.drawable.p3,3,"₱ 70.00"));
+//        dataFood.add(new Data("Letchon Paksiw","You can easily go to heaven when eating this...",R.drawable.p4,2,"₱ 100.00"));
+//        dataFood.add(new Data("Pakbet","Many vegetables with chicharoon and bagoong",R.drawable.p2,1,"₱ 40.00"));
+//        dataFood.add(new Data("Sisig","Chop chop pork with oily features",R.drawable.p3,2,"₱ 30.00"));
+//        dataFood.add(new Data("Bicol Express","You will be a dragon after eating this...",R.drawable.p5,4, "₱ 80.00"));
+
+        Cursor bev = databaseHelper.getMenu(2);
         dataBeverage = new ArrayList<>();
-        dataBeverage.add(new Data("Coke","An oily chicken with soy sauce",R.drawable.p1,5,"₱ 20.00"));
-        dataBeverage.add(new Data("Ice Tea","An oily and crispy chicken with golden looks",R.drawable.p2,4,"₱ 25.00"));
-        dataBeverage.add(new Data("Milk Tea","A sour pork with soup and vegetables",R.drawable.p3,3,"₱ 50.00"));
-        dataBeverage.add(new Data("Lemonade","You can easily go to heaven when eating this...",R.drawable.p4,2,"₱ 20.00"));
-        dataBeverage.add(new Data("Beer","Many vegetables with chicharoon and bagoong",R.drawable.p2,1,"₱ 49.99"));
-        dataBeverage.add(new Data("Red Wine","Chop chop pork with oily features",R.drawable.p3,2,"₱ 39.99"));
-        dataBeverage.add(new Data("Chocolate Drink","You will be a dragon after eating this...",R.drawable.p5,4, "₱ 25.00"));
 
+        while(bev.moveToNext()){
+            dataBeverage.add(new Data(bev.getString(1),bev.getString(2),R.drawable.p1,Float.parseFloat(bev.getDouble(4) + ""),"₱ " + bev.getDouble(4)));
+        }
+        bev.close();
+
+//        dataBeverage.add(new Data("Coke","An oily chicken with soy sauce",R.drawable.p1,5,"₱ 20.00"));
+//        dataBeverage.add(new Data("Ice Tea","An oily and crispy chicken with golden looks",R.drawable.p2,4,"₱ 25.00"));
+//        dataBeverage.add(new Data("Milk Tea","A sour pork with soup and vegetables",R.drawable.p3,3,"₱ 50.00"));
+//        dataBeverage.add(new Data("Lemonade","You can easily go to heaven when eating this...",R.drawable.p4,2,"₱ 20.00"));
+//        dataBeverage.add(new Data("Beer","Many vegetables with chicharoon and bagoong",R.drawable.p2,1,"₱ 49.99"));
+//        dataBeverage.add(new Data("Red Wine","Chop chop pork with oily features",R.drawable.p3,2,"₱ 39.99"));
+//        dataBeverage.add(new Data("Chocolate Drink","You will be a dragon after eating this...",R.drawable.p5,4, "₱ 25.00"));
+
+        Cursor appetize = databaseHelper.getMenu(0);
         dataAppetizer = new ArrayList<>();
-        dataAppetizer.add(new Data("Snail","An oily chicken with soy sauce",R.drawable.p1,5,"₱ 50.00"));
-        dataAppetizer.add(new Data("Snake","An oily and crispy chicken with golden looks",R.drawable.p2,4,"₱ 40.00"));
-        dataAppetizer.add(new Data("Taho","A sour pork with soup and vegetables",R.drawable.p3,3,"₱ 10.00"));
-        dataAppetizer.add(new Data("Popcorn","You can easily go to heaven when eating this...",R.drawable.p4,2,"₱ 50.00"));
-        dataAppetizer.add(new Data("Donut","Many vegetables with chicharoon and bagoong",R.drawable.p2,1,"₱ 30.00"));
-        dataAppetizer.add(new Data("Pie","Chop chop pork with oily features",R.drawable.p3,2,"₱ 50.00"));
-        dataAppetizer.add(new Data("Salad","You will be a dragon after eating this...",R.drawable.p5,4, "₱ 20.00"));
+
+        while(appetize.moveToNext()){
+            dataAppetizer.add(new Data(appetize.getString(1),appetize.getString(2),R.drawable.p1,Float.parseFloat(appetize.getDouble(4) + ""),"₱ " + appetize.getDouble(4)));
+        }
+        appetize.close();
+
+//        dataAppetizer.add(new Data("Snail","An oily chicken with soy sauce",R.drawable.p1,5,"₱ 50.00"));
+//        dataAppetizer.add(new Data("Snake","An oily and crispy chicken with golden looks",R.drawable.p2,4,"₱ 40.00"));
+//        dataAppetizer.add(new Data("Taho","A sour pork with soup and vegetables",R.drawable.p3,3,"₱ 10.00"));
+//        dataAppetizer.add(new Data("Popcorn","You can easily go to heaven when eating this...",R.drawable.p4,2,"₱ 50.00"));
+//        dataAppetizer.add(new Data("Donut","Many vegetables with chicharoon and bagoong",R.drawable.p2,1,"₱ 30.00"));
+//        dataAppetizer.add(new Data("Pie","Chop chop pork with oily features",R.drawable.p3,2,"₱ 50.00"));
+//        dataAppetizer.add(new Data("Salad","You will be a dragon after eating this...",R.drawable.p5,4, "₱ 20.00"));
 
         recyclerView= findViewById(R.id.recyclerViewMain);
         layoutManager =new LinearLayoutManager(MenuDish.this);
