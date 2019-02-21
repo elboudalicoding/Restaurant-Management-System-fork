@@ -8,4 +8,11 @@
         <item>Beverage</item>
     </array>
 
+    <array name="staff_position">
+        <item>Head Chef</item>
+        <item>Cook</item>
+        <item>Waiter</item>
+        <item>Sanitary</item>
+    </array>
+
 </resources>

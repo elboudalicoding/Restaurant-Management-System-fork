@@ -187,4 +187,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return data;
     }
 
+    public Cursor getStaff(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + STAFF_TABLE + ";";
+        Cursor data = db.rawQuery(query, null);
+        return data;
+    }
+
 }
