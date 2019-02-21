@@ -8,8 +8,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="AppThemActionAkbar" parent="Theme.AppCompat.Light">
-        <item name="colorPrimary">@color/colorPrimary</item>
+    <style name="AppThemActionAkbar" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="colorPrimary">@color/greenAccent</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>

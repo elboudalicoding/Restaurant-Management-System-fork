@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="100dp"
+    >
+
+    <ImageView
+        android:id="@+id/image_user"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/ic_account_circle_black_24dp"
+        android:tint="@color/greenAccent"/>
+
+    <TextView
+        android:id="@+id/label_staffname"
+        android:layout_toRightOf="@+id/image_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="STAFF NAME"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:textColor="@color/greenAccent"
+        android:padding="10dp"/>
+
+    <TextView
+        android:id="@+id/lable_staffposition"
+        android:layout_below="@id/label_staffname"
+        android:layout_toRightOf="@+id/image_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textColor="@color/greenAccent"
+        android:text="Janitor"/>
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/ic_edit_black_24dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:tint="@color/greenAccent"/>
+
+</RelativeLayout>
