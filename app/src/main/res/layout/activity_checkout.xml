@@ -98,7 +98,7 @@
             android:id="@+id/button_order"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Order More"
+            android:text="Order Now"
             android:textSize="24dp"/>
 
     </LinearLayout>

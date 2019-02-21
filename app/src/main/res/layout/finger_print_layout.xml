@@ -17,31 +17,39 @@
         >
 
         <RadioButton
+            android:id="@+id/name_sherwyne"
+            android:textAllCaps="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#eee"
-            android:buttonTint="#eee"
+            android:textColor="#40F1F1F1"
+            android:buttonTint="#40F1F1F1"
             android:text="Sherwyne"/>
 
         <RadioButton
+            android:id="@+id/name_jastoni"
+            android:textAllCaps="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#eee"
-            android:buttonTint="#eee"
+            android:textColor="#40F1F1F1"
+            android:buttonTint="#40F1F1F1"
             android:text="Jastoni"/>
 
         <RadioButton
+            android:id="@+id/name_keiji"
+            android:textAllCaps="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#eee"
-            android:buttonTint="#eee"
+            android:textColor="#40F1F1F1"
+            android:buttonTint="#40F1F1F1"
             android:text="Keiji"/>
 
         <RadioButton
+            android:id="@+id/name_joshua"
+            android:textAllCaps="true"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="#eee"
-            android:buttonTint="#eee"
+            android:textColor="#40F1F1F1"
+            android:buttonTint="#40F1F1F1"
             android:text="Joshua"/>
 
 

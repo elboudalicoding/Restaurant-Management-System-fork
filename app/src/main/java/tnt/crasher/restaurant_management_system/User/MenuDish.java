@@ -115,63 +115,63 @@ public class MenuDish extends AppCompatActivity implements SearchView.OnQueryTex
         button_proceed = findViewById(R.id.button_proceed);
 
         button_proceed.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (i < category.size()-1) {
-                    Log.d("SELECT CATEGORY", category.get(i));
-                    switch (category_name){
-                        case "Appetizer":
-                            appetizerLists = adapter.getAppetizer();
-                            Log.d("SELECTA", String.valueOf(appetizerLists));
-                            adapter =new RecyclerViewAdapter(dataFood);
-                            category_name = "Food";
-                            break;
+        @Override
+        public void onClick(View v) {
+            if (i < category.size()-1) {
+                Log.d("SELECT CATEGORY", category.get(i));
+                switch (category_name){
+                    case "Appetizer":
+                        appetizerLists = adapter.getAppetizer();
+                        Log.d("SELECTA", String.valueOf(appetizerLists));
+                        adapter =new RecyclerViewAdapter(dataFood);
+                        category_name = "Food";
+                        break;
 
-                        case "Food":
-                            foodLists = adapter.getFood();
-                            Log.d("SELECTA", String.valueOf(foodLists));
-                            adapter =new RecyclerViewAdapter(dataBeverage);
-                            category_name = "Beverage";
-                            break;
-                        case "Beverage":
-                            beverageLists = adapter.getBeverage();
-                            Log.d("SELECTA", String.valueOf(beverageLists));
-                            break;
-                        default:
-                            Log.d("SELECT ITEM", "NO MORE");
-                    }
-
-                    adapter.setCategory(category_name);
-                    recyclerView.setAdapter(adapter);
-                    i++;
+                    case "Food":
+                        foodLists = adapter.getFood();
+                        Log.d("SELECTA", String.valueOf(foodLists));
+                        adapter =new RecyclerViewAdapter(dataBeverage);
+                        category_name = "Beverage";
+                        break;
+                    case "Beverage":
+                        beverageLists = adapter.getBeverage();
+                        Log.d("SELECTA", String.valueOf(beverageLists));
+                        break;
+                    default:
+                        Log.d("SELECT ITEM", "NO MORE");
                 }
 
-                else{
-                    Log.d("SELECT", category.get(i));
-                    switch (category_name){
-                        case "Appetizer":
-                            appetizerLists = adapter.getAppetizer();
-                            Log.d("SELECTA", String.valueOf(appetizerLists));
-                            break;
-                        case "Food":
-                            foodLists = adapter.getFood();
-                            Log.d("SELECTA", String.valueOf(foodLists));
-                            break;
-                        case "Beverage":
-                            beverageLists = adapter.getBeverage();
-                            Log.d("SELECTA", String.valueOf(beverageLists));
-                            break;
-                        default:
-                            Log.d("SELECT ITEM", "NO MORE");
-                    }
-                    Intent intent = new Intent(getApplicationContext(), Checkout.class);
-                    intent.putExtra("food_lists", foodLists);
-                    intent.putExtra("beverage_lists", beverageLists);
-                    intent.putExtra("appetizer_lists", appetizerLists);
-
-                    startActivity(intent);
-                }
+                adapter.setCategory(category_name);
+                recyclerView.setAdapter(adapter);
+                i++;
             }
+
+            else{
+                Log.d("SELECT", category.get(i));
+                switch (category_name){
+                    case "Appetizer":
+                        appetizerLists = adapter.getAppetizer();
+                        Log.d("SELECTA", String.valueOf(appetizerLists));
+                        break;
+                    case "Food":
+                        foodLists = adapter.getFood();
+                        Log.d("SELECTA", String.valueOf(foodLists));
+                        break;
+                    case "Beverage":
+                        beverageLists = adapter.getBeverage();
+                        Log.d("SELECTA", String.valueOf(beverageLists));
+                        break;
+                    default:
+                        Log.d("SELECT ITEM", "NO MORE");
+                }
+                Intent intent = new Intent(getApplicationContext(), Checkout.class);
+                intent.putExtra("food_lists", foodLists);
+                intent.putExtra("beverage_lists", beverageLists);
+                intent.putExtra("appetizer_lists", appetizerLists);
+
+                startActivity(intent);
+            }
+        }
         });
     }
 

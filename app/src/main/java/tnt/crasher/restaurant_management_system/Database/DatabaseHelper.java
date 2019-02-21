@@ -23,6 +23,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String FOOD_PRICE = "food_price";
     private static final String FOOD_TYPE = "food_food";
 
+    //
+    private static final String FOOD_AMOUNT = "food_amount";
+
     private static final String CREATE_FOOD_TABLE = "CREATE TABLE " + FOOD_TABLE + " (" +
             FOOD_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             FOOD_NAME + " TEXT, " +
@@ -70,9 +73,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String CREATE_HISTORY_TABLE = "CREATE TABLE " + HISTORY_TABLE + "(" +
             HISTORY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
             HISTORY_TIME + " TEXT, " +
-            MEMBER_ID + " INTEGER, " +
-            FOOD_ID + " INTEGER, " +
-            FOOD_RATING + " DOUBLE);";
+            FOOD_NAME + " TEXT," +
+            FOOD_AMOUNT + " INTEGER);";
 
     public DatabaseHelper(Context context){
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -134,6 +136,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
             return true;
     }
 
+    public Cursor getStaff(){
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "SELECT * FROM " + STAFF_TABLE + ";";
+        Cursor data = db.rawQuery(query, null);
+        return data;
+    }
+
 
     // Register a member
 
@@ -155,13 +164,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // Add History
 
-    public boolean addHistory(String time, int member_id, int food_id, double food_rating) {
+    public boolean addHistory(String time, String food_name, int food_amount) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(HISTORY_TIME, time);
-        contentValues.put(MEMBER_ID, member_id);
-        contentValues.put(FOOD_ID, food_id);
-        contentValues.put(FOOD_RATING, food_rating);
+        contentValues.put(FOOD_NAME, food_name);
+        contentValues.put(FOOD_AMOUNT, food_amount);
 
         long results = db.insert(HISTORY_TABLE, null, contentValues);
 

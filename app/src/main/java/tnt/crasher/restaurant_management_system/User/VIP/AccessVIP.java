@@ -3,6 +3,7 @@ package tnt.crasher.restaurant_management_system.User.VIP;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
@@ -28,17 +29,18 @@ public class AccessVIP extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), MenuVIP.class);
                 String name = "";
                 int selectedId = names.getCheckedRadioButtonId();
+                Log.d("FUCK", selectedId + "");
                 switch(selectedId){
-                    case 1:
+                    case R.id.name_sherwyne:
                         name = "Sherwyne";
                         break;
-                    case 2:
+                    case R.id.name_jastoni:
                         name = "Jastoni";
                         break;
-                    case 3:
+                    case R.id.name_keiji:
                         name = "Keiji";
                         break;
-                    case 4:
+                    case R.id.name_joshua:
                         name = "Joshua";
                         break;
                     default:
