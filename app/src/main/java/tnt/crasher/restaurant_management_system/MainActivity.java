@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RatingBar;
 
+import tnt.crasher.restaurant_management_system.Admin.AdminMenu;
 import tnt.crasher.restaurant_management_system.User.MenuDish;
 
 public class MainActivity extends AppCompatActivity {
@@ -19,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Intent i = new Intent(MainActivity.this, AdminMenu.class);
+        startActivity(i);
 
         button_user = findViewById(R.id.button_user);
         ratingBar = findViewById(R.id.ratingBar2);
