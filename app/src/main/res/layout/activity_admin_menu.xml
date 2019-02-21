@@ -8,9 +8,10 @@
     android:background="#fff">
 
         <RelativeLayout
-            android:layout_marginTop="50dp"
+            android:layout_above="@+id/grid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
             android:background="#fff">
 
             <RelativeLayout
@@ -42,6 +43,7 @@
         </RelativeLayout>
 
          <GridLayout
+             android:id="@+id/grid"
              android:background="#eee"
              android:layout_centerHorizontal="true"
              android:layout_centerVertical="true"
